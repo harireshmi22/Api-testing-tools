@@ -1,0 +1,15 @@
+# Copy this file to .env and update the values
+
+# MongoDB Connection
+MONGO_URI=mongodb://localhost:27017/api-testing-tools
+
+# JWT Secret (change this in production)
+JWT_SECRET=your-super-secret-jwt-key-here
+
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+# CORS Configuration
+FRONTEND_URL=http://localhost:3000
+
