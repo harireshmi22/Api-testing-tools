@@ -8,7 +8,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = "https://your-backend-url.com/api/:splat"
+  to = "https://api-testing-production-704f.up.railway.app/api/:splat"
   status = 200
   force = true
 
@@ -18,10 +18,10 @@
   status = 200
 
 [context.production.environment]
-  NEXT_PUBLIC_API_URL = "https://your-backend-url.com"
+  NEXT_PUBLIC_API_URL = "https://api-testing-production-704f.up.railway.app"
 
 [context.deploy-preview.environment]
-  NEXT_PUBLIC_API_URL = "https://your-backend-url.com"
+  NEXT_PUBLIC_API_URL = "https://api-testing-production-704f.up.railway.app"
 
 [[headers]]
   for = "/*"
