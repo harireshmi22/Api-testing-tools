@@ -1,7 +1,22 @@
 import axios from 'axios';
 
-// API Configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+// Fallback API configuration for Netlify deployment
+const getApiUrl = () => {
+  // Try environment variable first
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  
+  // Fallback for Netlify production
+  if (typeof window !== 'undefined' && window.location.hostname.includes('netlify.app')) {
+    return 'https://api-testing-production-704f.up.railway.app';
+  }
+  
+  // Default for local development
+  return 'http://localhost:5000';
+};
+
+const API_BASE_URL = getApiUrl();
 
 // Create axios instance
 const api = axios.create({
