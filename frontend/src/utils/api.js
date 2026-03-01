@@ -9,7 +9,7 @@ const getApiUrl = () => {
   
   // Fallback for Netlify production
   if (typeof window !== 'undefined' && window.location.hostname.includes('netlify.app')) {
-    return 'https://api-testing-tools.onrender.com';
+    return 'https://api-testing-tools-2.onrender.com';
   }
   
   // Default for local development
