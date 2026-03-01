@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Fallback API configuration for Netlify deployment
+// Fallback API configuration for deployment
 const getApiUrl = () => {
   // Try environment variable first
   if (process.env.NEXT_PUBLIC_API_URL) {
@@ -9,7 +9,7 @@ const getApiUrl = () => {
   
   // Fallback for Netlify production
   if (typeof window !== 'undefined' && window.location.hostname.includes('netlify.app')) {
-    return 'https://api-testing-production-704f.up.railway.app';
+    return 'https://api-testing-tools.onrender.com';
   }
   
   // Default for local development
