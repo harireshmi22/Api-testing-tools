@@ -31,15 +31,17 @@ WORKDIR /app
 COPY --from=builder /app/package*.json ./
 RUN npm ci --only=production && npm cache clean --force
 
-# Copy the built application
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
+# Install serve for static files
+RUN npm install -g serve
 
-# Switch to the non-root user
+# Copy built static files
+COPY --from=builder /app/out ./out
+
+# Switch to non-root user
 USER nodejs 
 
 # Expose port 3000 for the application
 EXPOSE 3000
 
-# Start the application
-CMD ["npm", "start"]
+# Start static file server
+CMD ["serve", "-s", "out", "-l", "3000"]

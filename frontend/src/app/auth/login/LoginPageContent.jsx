@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import axios from "axios";
+import api from "@/utils/api";
 import { useAuthStore } from "@/store/useAuthStore";
 
 export default function LoginPageContent() {
@@ -60,10 +60,7 @@ export default function LoginPageContent() {
         setError("");
 
         try {
-            const response = await axios.post(
-                "http://localhost:5000/api/auth/login",
-                formData
-            );
+            const response = await api.post("/api/auth/login", formData);
 
             login(response.data.token, response.data.user);
             router.push(redirectUrl);

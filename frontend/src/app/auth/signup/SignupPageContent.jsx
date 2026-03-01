@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import axios from "axios";
+import api from "@/utils/api";
 import { useAuthStore } from "@/store/useAuthStore";
 
 export default function SignupPageContent() {
@@ -58,7 +58,7 @@ export default function SignupPageContent() {
 
         try {
             const { confirmPassword, ...signupData } = formData;
-            const response = await axios.post("http://localhost:5000/api/auth/register", signupData);
+            const response = await api.post("/api/auth/register", signupData);
 
             login(response.data.token, response.data.user);
             router.push(redirectUrl);
