@@ -5,6 +5,7 @@ const defaultOrigins = [
     'http://localhost:3001',        // Local frontend (added)
     'http://localhost:3002',        // Local frontend (added)
     'http://localhost:3003',        // Local frontend (added)
+    'https://api-testing-tools.netlify.app',  // Netlify production
     'https://yourdomain.com',       // Production domain
     'https://www.yourdomain.com'    // Production domain with www
 ];
